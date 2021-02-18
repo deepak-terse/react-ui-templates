@@ -1,10 +1,10 @@
 <p align="center"><img width="100"src="public/favicon_io/android-chrome-512x512.png"></p>
 
-<h1 align="center"><strong>React Boilerplate</strong></h1>
+<h1 align="center"><strong>React UI Templates</strong></h1>
 
 <div align="center">
 	<strong>
-		A simple, minimalistic react template to build single page applications
+		A react component UI library to build single page applications
 	</strong>
 </div>
 
@@ -45,8 +45,8 @@
 
 ``` bash
 # clone the project
-git clone https://github.com/deepak-terse/react-boilerplate.git
-cd react-boilerplate
+git clone https://github.com/deepak-terse/react-ui-templates.git
+cd react-ui-templates
 
 # install dependencies
 npm install
