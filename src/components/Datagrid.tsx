@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Button from './form-input/Button';
 
 interface MyProps {
     toggle: any
@@ -18,7 +19,11 @@ class Datagrid extends Component<MyProps, MyState> {
     render() {
         return (
             <div>
-                <button onClick={this.props.toggle}>Open Side Panel</button>
+                <Button
+                        placeholder = "Open Side Panel"
+                        type = "button"
+                        onClick = {this.props.toggle}
+                />
             </div>
         )
     }

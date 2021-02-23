@@ -7,6 +7,7 @@ import ColorInput from '../components/form-input/ColorInput';
 import SelectInput from '../components/form-input/SelectInput';
 import RadioInput from '../components/form-input/RadioInput';
 import CheckboxInput from '../components/form-input/CheckboxInput';
+import Button from '../components/form-input/Button';
 
 interface MyProps {
     
@@ -25,6 +26,7 @@ interface MyState {
 
 
 class Form extends Component<MyProps, MyState> {
+    initialState = {};
     constructor(props: any) {
         super(props);
         this.state = {
@@ -41,6 +43,7 @@ class Form extends Component<MyProps, MyState> {
             ],
             className: {}
         };
+        this.initialState = this.state;
     }
 
     onTextInputChange = (event: any) => {
@@ -79,63 +82,82 @@ class Form extends Component<MyProps, MyState> {
         console.log(selectInputData);
     };
 
+    onButtonClick = (event: any) => {
+        console.log('Button clicked');
+    };
+
+    handleFormReset = (event: any) => {
+        this.setState(() => this.initialState)
+    }
+
     render() {
         return (
             <div>
-                <TextInput
-                    name = ""
-                    placeholder = "Enter Text"
-                    value = {this.state.textInputData}
-                    type = "text"
-                    onChange = {this.onTextInputChange}
-                />
-                <NumberInput
-                    name = ""
-                    placeholder = "Enter Number"
-                    value = {this.state.numberInputData}
-                    type = "number"
-                    onChange = {this.onNumberInputChange}
-                />
-                <DateInput
-                    name = ""
-                    placeholder = "Enter Date"
-                    value = {this.state.dateInputData}
-                    type = "date"
-                    onChange = {this.onDateInputChange}
-                />
-                <FileInput
-                    name = ""
-                    placeholder = "Select File"
-                    value = {this.state.fileInputData}
-                    type = "file"
-                    onChange = {this.onFileInputChange}
-                />
-                <ColorInput
-                    name = ""
-                    placeholder = "Select Color"
-                    value = {this.state.colorInputData}
-                    type = "color"
-                    onChange = {this.onColorInputChange}
-                />
-                <SelectInput
-                    name = ""
-                    placeholder = "Select options"
-                    options = {this.state.selectOptions}
-                    value = {this.state.selectInputData}
-                    onChange = {this.onSelectInputChange}
-                />
-                <RadioInput
-                    name = ""
-                    placeholder = "Option A"
-                    value = {this.state.selectInputData}
-                    onChange = {this.onSelectInputChange}
-                />
-                <CheckboxInput
-                    name = ""
-                    placeholder = "Option B"
-                    value = {this.state.selectInputData}
-                    onChange = {this.onSelectInputChange}
-                />
+                <form onReset={this.handleFormReset}>
+                    <TextInput
+                        name = ""
+                        placeholder = "Enter Text"
+                        value = {this.state.textInputData}
+                        type = "text"
+                        onChange = {this.onTextInputChange}
+                    />
+                    <NumberInput
+                        name = ""
+                        placeholder = "Enter Number"
+                        value = {this.state.numberInputData}
+                        type = "number"
+                        onChange = {this.onNumberInputChange}
+                    />
+                    <DateInput
+                        name = ""
+                        placeholder = "Enter Date"
+                        value = {this.state.dateInputData}
+                        type = "date"
+                        onChange = {this.onDateInputChange}
+                    />
+                    <FileInput
+                        name = ""
+                        placeholder = "Select File"
+                        value = {this.state.fileInputData}
+                        type = "file"
+                        onChange = {this.onFileInputChange}
+                    />
+                    <ColorInput
+                        name = ""
+                        placeholder = "Select Color"
+                        value = {this.state.colorInputData}
+                        type = "color"
+                        onChange = {this.onColorInputChange}
+                    />
+                    <SelectInput
+                        name = ""
+                        placeholder = "Select options"
+                        options = {this.state.selectOptions}
+                        value = {this.state.selectInputData}
+                        onChange = {this.onSelectInputChange}
+                    />
+                    <RadioInput
+                        name = ""
+                        placeholder = "Option A"
+                        value = {this.state.selectInputData}
+                        onChange = {this.onSelectInputChange}
+                    />
+                    <CheckboxInput
+                        name = ""
+                        placeholder = "Option B"
+                        value = {this.state.selectInputData}
+                        onChange = {this.onSelectInputChange}
+                    />
+                    <Button
+                        placeholder = "Submit"
+                        type = "button"
+                        onClick = {this.onButtonClick}
+                    />
+                    <Button
+                        placeholder = "Reset"
+                        type = "reset"
+                    />
+                </form>
             </div>
         )
     }
