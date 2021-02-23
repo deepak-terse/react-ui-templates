@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styles from '../styles/FormInput.module.scss'
+import styles from '../../styles/FormInput.module.scss'
 
-export default function FileInput(props: any) {
+export default function TextInput(props: any) {
     console.log(styles.input);
     return <input 
         type = {props.type}
@@ -14,14 +14,14 @@ export default function FileInput(props: any) {
         />
 }
 
-FileInput.defaultProps = {
-    type: "file",
+TextInput.defaultProps = {
+    type: "text",
     className: styles.input
 }
 
-FileInput.propTypes = {
+TextInput.propTypes = {
     name: PropTypes.string.isRequired,
-    type: PropTypes.oneOf(['file']),
+    type: PropTypes.oneOf(['text', 'email', 'password']),
     placeholder: PropTypes.string.isRequired,
     className: PropTypes.string,
     value: PropTypes.any,

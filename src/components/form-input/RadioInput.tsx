@@ -1,22 +1,24 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styles from '../styles/FormInput.module.scss'
+import styles from '../../styles/FormInput.module.scss'
 
 export default function RadioInput(props: any) {
     console.log(styles.input);
-    return <input 
-        type = {props.type}
-        name = {props.name}
-        placeholder = {props.placeholder}
-        value = {props.value}
-        className = {props.className}
-        onChange = {props.onChange}
+    return <div className = {props.className}>
+        <input 
+            type = {props.type}
+            name = {props.name}
+            placeholder = {props.placeholder}
+            value = {props.value}
+            onChange = {props.onChange}
         />
+        <span>{props.placeholder}</span>
+    </div>
 }
 
 RadioInput.defaultProps = {
     type: "radio",
-    className: styles.input
+    className: styles.colorInput
 }
 
 RadioInput.propTypes = {

@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styles from '../styles/FormInput.module.scss'
+import styles from '../../styles/FormInput.module.scss'
 
 export default function ColorInput(props: any) {
     console.log(styles.input);

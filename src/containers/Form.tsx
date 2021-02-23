@@ -1,10 +1,13 @@
 import React, { Component } from 'react'
-import TextInput from '../components/TextInput';
-import NumberInput from '../components/NumberInput';
-import DateInput from '../components/DateInput';
-import FileInput from '../components/FileInput';
-import ColorInput from '../components/ColorInput';
-import SelectInput from '../components/SelectInput';
+import TextInput from '../components/form-input/TextInput';
+import NumberInput from '../components/form-input/NumberInput';
+import DateInput from '../components/form-input/DateInput';
+import FileInput from '../components/form-input/FileInput';
+import ColorInput from '../components/form-input/ColorInput';
+import SelectInput from '../components/form-input/SelectInput';
+import RadioInput from '../components/form-input/RadioInput';
+import CheckboxInput from '../components/form-input/CheckboxInput';
+
 interface MyProps {
     
 }
@@ -15,7 +18,8 @@ interface MyState {
     dateInputData: string,
     fileInputData: string,
     colorInputData: string,
-    selectInputData: string
+    selectInputData: string,
+    selectOptions: any,
     className: any
 }
 
@@ -29,7 +33,12 @@ class Form extends Component<MyProps, MyState> {
             dateInputData: '2021-02-17',
             fileInputData: "",
             colorInputData: "#000000",
-            selectInputData: "Foo",
+            selectInputData: "",
+            selectOptions: [
+                {   value: 'foo', key: 'Foo'},
+                {   value: 'bar', key: 'Bar'},
+                {   value: 'baz', key: 'Baz'}
+            ],
             className: {}
         };
     }
@@ -111,6 +120,19 @@ class Form extends Component<MyProps, MyState> {
                 <SelectInput
                     name = ""
                     placeholder = "Select options"
+                    options = {this.state.selectOptions}
+                    value = {this.state.selectInputData}
+                    onChange = {this.onSelectInputChange}
+                />
+                <RadioInput
+                    name = ""
+                    placeholder = "Option A"
+                    value = {this.state.selectInputData}
+                    onChange = {this.onSelectInputChange}
+                />
+                <CheckboxInput
+                    name = ""
+                    placeholder = "Option B"
                     value = {this.state.selectInputData}
                     onChange = {this.onSelectInputChange}
                 />

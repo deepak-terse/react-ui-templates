@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styles from '../styles/FormInput.module.scss'
+import styles from '../../styles/FormInput.module.scss'
 
 export default function SelectInput(props: any) {
     console.log(styles.input);
@@ -9,7 +9,7 @@ export default function SelectInput(props: any) {
         value = {props.value}
         className = {props.className}
         onChange = {props.onChange}>
-            <option value="select">{props.placeholder}</option>
+            <option value="">{props.placeholder}</option>
             {props.options.map((option: any) =>
                 <option key={option.key} value={option.key}>{option.value}</option>
             )}
@@ -19,11 +19,7 @@ export default function SelectInput(props: any) {
 SelectInput.defaultProps = {
     type: "select",
     className: styles.input,
-    options : [
-        {   value: 'foo', key: 'Foo'},
-        {   value: 'bar', key: 'Bar'},
-        {   value: 'baz', key: 'Baz'}
-    ]
+    options : []
 }
 
 SelectInput.propTypes = {

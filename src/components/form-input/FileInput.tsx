@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styles from '../styles/FormInput.module.scss'
+import styles from '../../styles/FormInput.module.scss'
 
-export default function NumberInput(props: any) {
+export default function FileInput(props: any) {
     console.log(styles.input);
     return <input 
-        type = "number"
+        type = {props.type}
         name = {props.name}
         placeholder = {props.placeholder}
         value = {props.value}
@@ -14,14 +14,14 @@ export default function NumberInput(props: any) {
         />
 }
 
-NumberInput.defaultProps = {
-    type: "number",
+FileInput.defaultProps = {
+    type: "file",
     className: styles.input
 }
 
-NumberInput.propTypes = {
+FileInput.propTypes = {
     name: PropTypes.string.isRequired,
-    type: PropTypes.oneOf(['number']),
+    type: PropTypes.oneOf(['file']),
     placeholder: PropTypes.string.isRequired,
     className: PropTypes.string,
     value: PropTypes.any,
